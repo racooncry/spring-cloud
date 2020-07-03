@@ -1,0 +1,18 @@
+server:
+  port: 8761
+spring:
+  application:
+    name: registry
+  security:
+    user:
+      password: 123456
+      name: shenfeng
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@localhost:${server.port}/eureka/
+    healthcheck:
+      enabled: true
